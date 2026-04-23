@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CMS Healthcare Cost Analysis</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f5;
+            --text-color: #1a1a1a;
+            --accent-color: #333333;
+            --table-border: #d1d5db;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        header {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            border-bottom: 1px solid var(--table-border);
+            padding-bottom: 5px;
+        }
+        .meta-text {
+            font-size: 0.9rem;
+            color: #555555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--table-border);
+        }
+        th {
+            background-color: #e5e7eb;
+            font-weight: 600;
+            color: #374151;
+        }
+        tr:hover {
+            background-color: #f9fafb;
+        }
+        .summary-box {
+            background-color: #ffffff;
+            border: 1px solid var(--table-border);
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #6b7280;
+            border-top: 1px solid var(--table-border);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CMS Healthcare Cost Analyzer</h1>
+        <p class="meta-text">Generated: 2026-04-22 18:04:59 | Data Year: 2023</p>
+    </header>
+
+    <section class="summary-box">
+        <h2>Executive Summary</h2>
+        <ul>
+            <li>The highest average Medicare payment in TX is for <strong>Insertion of spinal neurostimulator generator or receiver</strong> at <strong>$17536.55</strong>.</li>
+            <li><strong>Dallas</strong> exhibits the highest average Medicare payment among major Texas cities at <strong>$113.50</strong>.</li>
+            <li>The highest charge-to-payment ratio observed is <strong>215.22x</strong> for <strong>Low osmolar contrast material, 300-399 mg/ml iodine concentration, per ml</strong>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Top 10 Most Expensive Procedures (Texas)</h2>
+        <table>
+            <tr>
+                <th>Procedure Description</th>
+                <th>Avg Medicare Payment</th>
+                <th>Total Utilization</th>
+            </tr>
+            
+            <tr>
+                <td>Insertion of spinal neurostimulator generator or receiver</td>
+                <td>$17536.55</td>
+                <td>39</td>
+            </tr>
+            
+            <tr>
+                <td>Fusion of pelvic joint using imaging guidance</td>
+                <td>$13337.54</td>
+                <td>23</td>
+            </tr>
+            
+            <tr>
+                <td>Fusion of sacroiliac joint between spine and pelvis with bone graft, accessed through skin using imaging guidance</td>
+                <td>$10592.84</td>
+                <td>19</td>
+            </tr>
+            
+            <tr>
+                <td>Removal of plaque and insertion of stents in arteries of leg</td>
+                <td>$8912.17</td>
+                <td>44</td>
+            </tr>
+            
+            <tr>
+                <td>Fusion of spine in lower back</td>
+                <td>$6783.74</td>
+                <td>60</td>
+            </tr>
+            
+            <tr>
+                <td>Removal of plaque in artery of leg, initial vessel</td>
+                <td>$5099.64</td>
+                <td>50</td>
+            </tr>
+            
+            <tr>
+                <td>Insertion of heart rhythm monitor under skin</td>
+                <td>$4419.39</td>
+                <td>45</td>
+            </tr>
+            
+            <tr>
+                <td>Removal of plaque in arteries of leg</td>
+                <td>$4114.88</td>
+                <td>15</td>
+            </tr>
+            
+            <tr>
+                <td>Removal of bone from lower spine for decompression of nerve tissue using imaging guidance, accessed through the skin</td>
+                <td>$3755.70</td>
+                <td>19</td>
+            </tr>
+            
+            <tr>
+                <td>Targeted genomic sequence analysis panel of dna or combine dna and rna of 51 or greater genes associated with blood and lymphatic system disorders</td>
+                <td>$2774.88</td>
+                <td>26</td>
+            </tr>
+            
+        </table>
+    </section>
+
+    <section>
+        <h2>Cost Variance by City</h2>
+        <table>
+            <tr>
+                <th>City</th>
+                <th>Avg Payment</th>
+                <th>Avg Billed</th>
+                <th>Total Services</th>
+            </tr>
+            
+            <tr>
+                <td>Dallas</td>
+                <td>$113.50</td>
+                <td>$591.08</td>
+                <td>41647</td>
+            </tr>
+            
+            <tr>
+                <td>Austin</td>
+                <td>$94.38</td>
+                <td>$469.02</td>
+                <td>35401</td>
+            </tr>
+            
+            <tr>
+                <td>Houston</td>
+                <td>$83.12</td>
+                <td>$595.34</td>
+                <td>326393</td>
+            </tr>
+            
+            <tr>
+                <td>San Antonio</td>
+                <td>$77.48</td>
+                <td>$386.41</td>
+                <td>24411</td>
+            </tr>
+            
+        </table>
+    </section>
+
+    <section>
+        <h2>Top 15 Highest Charge-to-Payment Ratios (Volume > 1000)</h2>
+        <table>
+            <tr>
+                <th>Procedure Description</th>
+                <th>Charge Ratio</th>
+                <th>Volume</th>
+            </tr>
+            
+            <tr>
+                <td>Low osmolar contrast material, 300-399 mg/ml iodine concentration, per ml</td>
+                <td>215.22</td>
+                <td>8083</td>
+            </tr>
+            
+            <tr>
+                <td>Injection, dexamethasone sodium phosphate, 1 mg</td>
+                <td>64.24</td>
+                <td>11643</td>
+            </tr>
+            
+            <tr>
+                <td>Injection, fosaprepitant, 1 mg</td>
+                <td>38.46</td>
+                <td>6450</td>
+            </tr>
+            
+            <tr>
+                <td>Injection, ceftriaxone sodium, per 250 mg</td>
+                <td>32.82</td>
+                <td>1018</td>
+            </tr>
+            
+            <tr>
+                <td>Injection, triamcinolone acetonide, not otherwise specified, 10 mg</td>
+                <td>26.44</td>
+                <td>4971</td>
+            </tr>
+            
+            <tr>
+                <td>Ct scan of abdomen and pelvis with contrast</td>
+                <td>15.07</td>
+                <td>1024</td>
+            </tr>
+            
+            <tr>
+                <td>X-ray of chest, 1 view</td>
+                <td>13.37</td>
+                <td>7133</td>
+            </tr>
+            
+            <tr>
+                <td>Injection, ferumoxytol, for treatment of iron deficiency anemia, 1 mg (non-esrd use)</td>
+                <td>12.82</td>
+                <td>21420</td>
+            </tr>
+            
+            <tr>
+                <td>Injection, iron sucrose, 1 mg</td>
+                <td>12.5</td>
+                <td>16400</td>
+            </tr>
+            
+            <tr>
+                <td>Emergency department visit with high level of medical decision making</td>
+                <td>11.95</td>
+                <td>4897</td>
+            </tr>
+            
+            <tr>
+                <td>Routine electrocardiogram (ecg) using at least 12 leads with interpretation and report only</td>
+                <td>11.14</td>
+                <td>7519</td>
+            </tr>
+            
+            <tr>
+                <td>Emergency department visit with moderate level of medical decision making</td>
+                <td>11.09</td>
+                <td>2129</td>
+            </tr>
+            
+            <tr>
+                <td>Ct scan head or brain without contrast</td>
+                <td>11.02</td>
+                <td>4338</td>
+            </tr>
+            
+            <tr>
+                <td>Hyaluronan or derivative, durolane, for intra-articular injection, 1 mg</td>
+                <td>9.83</td>
+                <td>5240</td>
+            </tr>
+            
+            <tr>
+                <td>Mri scan of brain before and after contrast</td>
+                <td>9.68</td>
+                <td>1199</td>
+            </tr>
+            
+        </table>
+    </section>
+
+    <footer>
+        <p>Data Source: Centers for Medicare & Medicaid Services (CMS) Public Data.</p>
+        <p>Methodology: Analyzed via PostgreSQL aggregations on providers based in Texas.</p>
+    </footer>
+</body>
+</html>

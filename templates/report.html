@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CMS Healthcare Cost Analysis</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f5;
+            --text-color: #1a1a1a;
+            --accent-color: #333333;
+            --table-border: #d1d5db;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        header {
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 1.2rem;
+            margin-top: 30px;
+            border-bottom: 1px solid var(--table-border);
+            padding-bottom: 5px;
+        }
+        .meta-text {
+            font-size: 0.9rem;
+            color: #555555;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            font-size: 0.95rem;
+        }
+        th, td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--table-border);
+        }
+        th {
+            background-color: #e5e7eb;
+            font-weight: 600;
+            color: #374151;
+        }
+        tr:hover {
+            background-color: #f9fafb;
+        }
+        .summary-box {
+            background-color: #ffffff;
+            border: 1px solid var(--table-border);
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.85rem;
+            color: #6b7280;
+            border-top: 1px solid var(--table-border);
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CMS Healthcare Cost Analyzer</h1>
+        <p class="meta-text">Generated: {{ generated_at }} | Data Year: 2023</p>
+    </header>
+
+    <section class="summary-box">
+        <h2>Executive Summary</h2>
+        <ul>
+            <li>The highest average Medicare payment in TX is for <strong>{{ top_procedures.iloc[0]['procedure_desc'] }}</strong> at <strong>${{ "%.2f"|format(top_procedures.iloc[0]['avg_pmt']) }}</strong>.</li>
+            <li><strong>{{ city_variance.iloc[0]['provider_city']|title }}</strong> exhibits the highest average Medicare payment among major Texas cities at <strong>${{ "%.2f"|format(city_variance.iloc[0]['avg_payment']) }}</strong>.</li>
+            <li>The highest charge-to-payment ratio observed is <strong>{{ charge_ratio.iloc[0]['charge_ratio'] }}x</strong> for <strong>{{ charge_ratio.iloc[0]['procedure_desc'] }}</strong>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Top 10 Most Expensive Procedures (Texas)</h2>
+        <table>
+            <tr>
+                <th>Procedure Description</th>
+                <th>Avg Medicare Payment</th>
+                <th>Total Utilization</th>
+            </tr>
+            {% for index, row in top_procedures.iterrows() %}
+            <tr>
+                <td>{{ row['procedure_desc'] }}</td>
+                <td>${{ "%.2f"|format(row['avg_pmt']) }}</td>
+                <td>{{ row['total_utilization'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <section>
+        <h2>Cost Variance by City</h2>
+        <table>
+            <tr>
+                <th>City</th>
+                <th>Avg Payment</th>
+                <th>Avg Billed</th>
+                <th>Total Services</th>
+            </tr>
+            {% for index, row in city_variance.iterrows() %}
+            <tr>
+                <td>{{ row['provider_city']|title }}</td>
+                <td>${{ "%.2f"|format(row['avg_payment']) }}</td>
+                <td>${{ "%.2f"|format(row['avg_billed']) }}</td>
+                <td>{{ row['total_services'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <section>
+        <h2>Top 15 Highest Charge-to-Payment Ratios (Volume > 1000)</h2>
+        <table>
+            <tr>
+                <th>Procedure Description</th>
+                <th>Charge Ratio</th>
+                <th>Volume</th>
+            </tr>
+            {% for index, row in charge_ratio.iterrows() %}
+            <tr>
+                <td>{{ row['procedure_desc'] }}</td>
+                <td>{{ row['charge_ratio'] }}</td>
+                <td>{{ row['volume'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+    <footer>
+        <p>Data Source: Centers for Medicare & Medicaid Services (CMS) Public Data.</p>
+        <p>Methodology: Analyzed via PostgreSQL aggregations on providers based in Texas.</p>
+    </footer>
+</body>
+</html>
